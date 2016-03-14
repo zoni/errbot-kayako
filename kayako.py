@@ -100,6 +100,6 @@ class Kayako(BotPlugin):
             if e.response.status_code == 404:
                 self.log.info("Ticket '%s' doesn't exist.", displayid)
             else:
-                raise
+                self.log.exception("An HTTP error occurred while trying to look up ticket '%s'", displayid)
         except Exception as e:
             self.log.exception("An error occurred while trying to look up ticket '%s'", displayid)
